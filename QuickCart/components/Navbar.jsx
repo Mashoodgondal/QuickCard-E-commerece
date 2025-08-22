@@ -91,7 +91,10 @@ export default Navbar;
 
 
 
-//  <Link
+//  <Link <Link
+//   href="/sign-up"
+//   className="flex items-center gap-2 border px-3 py-1.5 rounded-full hover:bg-gray-100 transition"
+// >
 //             href="/sign-up"
 //             className="flex items-center gap-2 border px-3 py-1.5 rounded-full hover:bg-gray-100 transition"
 //           ></Link>
