@@ -6,10 +6,12 @@ import { assets, BoxIcon, CartIcon, HomeIcon } from "@/assets/assets";
 import Link from "next/link";
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
-import Router from "next/router";
+
 import { UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  // const router = useRouter()
   const { isSeller, router } = useAppContext();
 
   return (
@@ -44,7 +46,26 @@ const Navbar = () => {
 
 
         <SignedIn>
-          <UserButton />
+          {/* <UserButton /> */}
+          <UserButton>
+            <UserButton.MenuItems>
+              <UserButton.Action
+                label="Home"
+                labelIcon={<HomeIcon />}
+                onClick={() => router.push("/")}
+              />
+              <UserButton.Action
+                label="Products"
+                labelIcon={<BoxIcon />}
+                onClick={() => router.push("/all-products")}
+              />
+              <UserButton.Action
+                label="Cart"
+                labelIcon={<CartIcon />}
+                onClick={() => router.push("/cart")}
+              />
+            </UserButton.MenuItems>
+          </UserButton>
         </SignedIn>
         <SignedOut>
           <Link
@@ -68,55 +89,27 @@ const Navbar = () => {
           </button>
         )}
         <SignedIn>
-          {/* <UserButton >
-            <UserButton.MenuItems>
-              <UserButton.Action label="Home" labelIcon={<HomeIcon />} onClick={() => Router.push('/')} />
-            </UserButton.MenuItems>
-            <UserButton.MenuItems>
-              <UserButton.Action label="Products" labelIcon={<BoxIcon />} onClick={() => Router.push('/')} />
-            </UserButton.MenuItems> <UserButton.MenuItems>
-              <UserButton.Action label="cart" labelIcon={<CartIcon />} onClick={() => Router.push('/')} />
-            </UserButton.MenuItems>
-          </UserButton> */}
+
+          <UserButton />
           {/* <UserButton>
             <UserButton.MenuItems>
-              <UserButton.MenuItem
+              <UserButton.Action
                 label="Home"
                 labelIcon={<HomeIcon />}
                 onClick={() => Router.push("/")}
               />
-              <UserButton.MenuItem
+              <UserButton.Action
                 label="Products"
                 labelIcon={<BoxIcon />}
                 onClick={() => Router.push("/all-products")}
               />
-              <UserButton.MenuItem
+              <UserButton.Action
                 label="Cart"
                 labelIcon={<CartIcon />}
                 onClick={() => Router.push("/cart")}
               />
             </UserButton.MenuItems>
           </UserButton> */}
-
-          <UserButton>
-            <UserButton.MenuItems>
-              <UserButton.Action
-                label="Home"
-                labelIcon={<HomeIcon />}
-                onClick={() => Router.push("/")}
-              />
-              <UserButton.Action
-                label="Products"
-                labelIcon={<BoxIcon />}
-                onClick={() => Router.push("/all-products")}
-              />
-              <UserButton.Action
-                label="Cart"
-                labelIcon={<CartIcon />}
-                onClick={() => Router.push("/cart")}
-              />
-            </UserButton.MenuItems>
-          </UserButton>
 
 
         </SignedIn>
