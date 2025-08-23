@@ -2,10 +2,11 @@
 
 "use client"
 import React from "react";
-import { assets } from "@/assets/assets";
+import { assets, BoxIcon, CartIcon, HomeIcon } from "@/assets/assets";
 import Link from "next/link";
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
+import Router from "next/router";
 import { UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 const Navbar = () => {
@@ -66,9 +67,58 @@ const Navbar = () => {
             Seller Dashboard
           </button>
         )}
-
         <SignedIn>
-          <UserButton />
+          {/* <UserButton >
+            <UserButton.MenuItems>
+              <UserButton.Action label="Home" labelIcon={<HomeIcon />} onClick={() => Router.push('/')} />
+            </UserButton.MenuItems>
+            <UserButton.MenuItems>
+              <UserButton.Action label="Products" labelIcon={<BoxIcon />} onClick={() => Router.push('/')} />
+            </UserButton.MenuItems> <UserButton.MenuItems>
+              <UserButton.Action label="cart" labelIcon={<CartIcon />} onClick={() => Router.push('/')} />
+            </UserButton.MenuItems>
+          </UserButton> */}
+          {/* <UserButton>
+            <UserButton.MenuItems>
+              <UserButton.MenuItem
+                label="Home"
+                labelIcon={<HomeIcon />}
+                onClick={() => Router.push("/")}
+              />
+              <UserButton.MenuItem
+                label="Products"
+                labelIcon={<BoxIcon />}
+                onClick={() => Router.push("/all-products")}
+              />
+              <UserButton.MenuItem
+                label="Cart"
+                labelIcon={<CartIcon />}
+                onClick={() => Router.push("/cart")}
+              />
+            </UserButton.MenuItems>
+          </UserButton> */}
+
+          <UserButton>
+            <UserButton.MenuItems>
+              <UserButton.Action
+                label="Home"
+                labelIcon={<HomeIcon />}
+                onClick={() => Router.push("/")}
+              />
+              <UserButton.Action
+                label="Products"
+                labelIcon={<BoxIcon />}
+                onClick={() => Router.push("/all-products")}
+              />
+              <UserButton.Action
+                label="Cart"
+                labelIcon={<CartIcon />}
+                onClick={() => Router.push("/cart")}
+              />
+            </UserButton.MenuItems>
+          </UserButton>
+
+
         </SignedIn>
         <SignedOut>
           <Link
