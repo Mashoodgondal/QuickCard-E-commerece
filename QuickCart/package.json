@@ -12,11 +12,12 @@
     "@clerk/nextjs": "^6.31.1",
     "inngest": "^3.40.1",
     "mongoose": "^8.18.0",
-    "next": "^15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "^15.5.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react-hot-toast": "^2.5.1",
-    "styled-jsx": "^5.1.7"
+    "regenerate-unicode-properties": "^10.2.0",
+    "styled-jsx": "^5.1.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
